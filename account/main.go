@@ -10,16 +10,15 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/huxingyi1997/memrizr/handler"
 )
 
 func main() {
 	log.Println("Starting server...")
 
 	router := gin.Default()
-	router.GET("/api/account", func(ctx *gin.Context) {
-		ctx.JSON(http.StatusOK, gin.H{
-			"hello": "spike",
-		})
+	handler.NewHandler(&handler.Config{
+		R: router,
 	})
 
 	srv := &http.Server{
