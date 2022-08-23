@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/huxingyi1997/memrizr/model"
 )
 
 // Handler struct holds required services for handler to function
@@ -14,6 +15,7 @@ type Handler struct{}
 // handler layer on handler initialization
 type Config struct {
 	R *gin.Engine
+	US *model.UserService
 }
 
 // NewHandler initializes the handler with required injected services along with http routes
