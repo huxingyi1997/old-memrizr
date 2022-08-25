@@ -1,4 +1,4 @@
-package model
+package apperrors
 
 import (
 	"errors"
@@ -99,7 +99,7 @@ func NewConflict(name string, value string) *Error {
 func NewInternal() *Error {
 	return &Error{
 		Type:    Internal,
-		Message: fmt.Sprintf("Internal server error."),
+		Message: fmt.Sprintln("Internal server error."),
 	}
 }
 
