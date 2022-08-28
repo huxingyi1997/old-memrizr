@@ -7,8 +7,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
-	"github.com/huxingyi1997/memrizr/model"
-	"github.com/huxingyi1997/memrizr/model/mocks"
+	"github.com/huxingyi1997/memrizr/account/model"
+	"github.com/huxingyi1997/memrizr/account/model/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
