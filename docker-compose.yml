@@ -33,6 +33,7 @@ services:
       context: ./account
       target: builder
     image: account # if we don't give image name, traefik won't create router 🤷‍♂️
+    env_file: .env.dev
     expose:
       - "8080" # seems necessary for Traefik to have internal expose of port
     labels:
