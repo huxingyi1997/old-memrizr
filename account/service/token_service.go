@@ -49,14 +49,14 @@ func NewTokenService(c *TSConfig) model.TokenService {
 // the tokens repository
 func (s *tokenService) NewPairFromUser(ctx context.Context, u *model.User, prevTokenID string) (*model.TokenPair, error) {
 	// No need to use a repository for idToken as it is unrelated to any data source
-	idToken, err := generateIDToken(u, s.PrivKey)
+	idToken, err := generateIDToken(u, s.PrivKey, s.IDExpirationSecs)
 
 	if err != nil {
 		log.Printf("Error generating idToken for uid: %v. Error: %v\n", u.UID, err.Error())
 		return nil, apperrors.NewInternal()
 	}
 
-	refreshToken, err := generateRefreshToken(u.UID, s.RefreshSecret)
+	refreshToken, err := generateRefreshToken(u.UID, s.RefreshSecret, s.RefreshExpirationSecs)
 
 	if err != nil {
 		log.Printf("Error generating refreshToken for uid: %v. Error: %v\n", u.UID, err.Error())
